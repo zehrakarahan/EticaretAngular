@@ -1,0 +1,118 @@
+/* Genel Dialog Kutusu Stili */
+.k-dialog-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4a4a4a;
+  }
+  
+  .k-dialog {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Form Konteyneri */
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Alanlar arasında boşluk */
+    padding: 20px;
+  }
+  
+  /* Etiket ve Input Stili */
+  label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  label input,
+  label select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  label input:focus,
+  label select:focus {
+    border-color: #1976d2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+  }
+  
+  /* Dropdown Menü */
+  select {
+    cursor: pointer;
+    background-color: #fff;
+  }
+  
+  /* Buton Stili */
+  .my-custom-button {
+    background-color: #e64a19 !important; /* Hover için daha koyu turuncu */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .my-custom-button:hover {
+    background-color: #e64a19 !important; /* Hover için daha koyu turuncu */
+  }
+  
+  /* Dialog İçindeki Butonlar */
+  .k-dialog-actions button {
+    margin-right: 10px;
+  }
+  
+  .k-dialog-actions button:first-child {
+    background-color: #28a745;
+    color: white;
+    border: none;
+  }
+  
+  .k-dialog-actions button:first-child:hover {
+    background-color: #218838;
+  }
+  
+  .k-dialog-actions button:last-child {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+  }
+  
+  .k-dialog-actions button:last-child:hover {
+    background-color: #c82333;
+  }
+  
+  /* Ürün Fiyatı ve Miktarı için Numara Alanları */
+  input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+  
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Chrome ve Safari */
+  }
+  
+  /* Mobil Uyumluluk */
+  @media (max-width: 600px) {
+    .k-dialog {
+      width: 95%;
+    }
+  
+    .form-container {
+      gap: 10px;
+    }
+  
+    .k-dialog-actions button {
+      width: 100%;
+    }
+  }
+  

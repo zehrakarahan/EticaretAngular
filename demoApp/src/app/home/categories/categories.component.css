@@ -1,0 +1,48 @@
+/* Form genel düzeni */
+.form-container {
+    display: flex;
+    flex-direction: column; /* Alt alta sıralama */
+    width: 300px; /* Form genişliği */
+    margin: 0 auto; /* Ortalamak için */
+  }
+  
+  /* Label ve input alanları */
+  .form-container label {
+    display: flex;
+    flex-direction: column; /* Input'u label'ın altına yerleştir */
+    margin-bottom: 15px; /* Alt boşluk */
+    font-size: 16px; /* Yazı boyutu */
+  }
+  
+  /* Buton düzeni */
+  .form-container button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-container button:hover {
+    background-color: #0056b3; /* Hover rengi */
+  }
+  .my-custom-button {
+    background-color: #ff5722 !important; /* Turuncu renk */
+    color: white !important; /* Yazı rengini beyaz yap */
+    border: none !important; /* Kenarlık kaldır */
+    padding: 10px 20px !important; /* Düğme boyutunu belirleyin */
+    border-radius: 4px !important; /* Köşe yuvarlama */
+  }
+  
+  .my-custom-button:hover {
+    background-color: #e64a19 !important; /* Hover için daha koyu turuncu */
+  }
+  .notification-box {
+    color: #d7971a;
+    background-color: #faf3e0;
+    padding: 5px;
+    font-family: "Montserrat", sans-serif;
+  }
+  

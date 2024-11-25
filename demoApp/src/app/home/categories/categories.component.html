@@ -1,0 +1,47 @@
+<button kendoButton class="k-primary my-custom-button"  (click)="open()">
+  Category Create
+</button>
+
+<kendo-grid
+
+[kendoGridBinding]="gridData"
+[pageSize]="10"
+[pageable]="true"
+[sortable]="true"
+[filterable]="true"
+[groupable]="true"
+[height]="420"
+>
+<kendo-grid-column field="categoryName" [width]="140"></kendo-grid-column>
+<kendo-grid-column field="categoriesDescription" [width]="120"></kendo-grid-column>
+<kendo-grid-column field="isActive" [width]="100"></kendo-grid-column>
+<kendo-grid-column field="isDeleted" [width]="130"></kendo-grid-column>
+</kendo-grid>
+
+
+ 
+  <kendo-dialog
+    title="Kategori Create"
+    *ngIf="opened"
+    (close)="close('cancel')"
+    [minWidth]="250"
+    [width]="450"
+  >
+  <form [formGroup]="bioSection" class="form-container">
+    <label>
+       Categories Name
+      <input type="text" [formControl]="bioSection.controls.categoriName">
+    </label>
+    <label>
+      Categories Descitiption
+      <input type="text" [formControl]="bioSection.controls.categoriesDescription">
+    </label>
+  </form>
+    <kendo-dialog-actions>
+      <button type="submit" kendoButton (click)="close('yes')" themeColor="primary">
+        Yes
+      </button>
+      <button kendoButton (click)="close('no')">No</button>
+      
+    </kendo-dialog-actions>
+  </kendo-dialog>

@@ -1,0 +1,166 @@
+
+  
+  /* Form Konteyneri */
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Alanlar arasında boşluk */
+    padding: 20px;
+    width: 100%;
+  }
+  
+  /* Etiket ve Input Stili */
+  label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  label input,
+  label select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  label input:focus,
+  label select:focus {
+    border-color: #1976d2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+  }
+  
+  /* Select Dropdown Stili */
+  select {
+    cursor: pointer;
+    background-color: #fff;
+  }
+  
+  /* Multiselect Stili */
+  .k-multiselect {
+    width: 100%;
+  }
+  
+  /* Tarih Seçici Input */
+  input[type="date"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  input[type="date"]:focus {
+    border-color: #1976d2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+  }
+  
+  /* Dialog Butonları */
+  .k-dialog-actions button {
+    margin-right: 10px;
+    width: auto;
+  }
+  
+  .k-dialog-actions button:first-child {
+    background-color: #28a745;
+    color: white;
+    border: none;
+  }
+  
+  .k-dialog-actions button:first-child:hover {
+    background-color: #218838;
+  }
+  
+  .k-dialog-actions button:last-child {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+  }
+  
+  .k-dialog-actions button:last-child:hover {
+    background-color: #c82333;
+  }
+  
+  /* Modal Uyumluluğu İçin */
+  @media (max-width: 600px) {
+    .k-dialog {
+      width: 95%;
+      max-height: 90vh; /* Yüksekliği sınırlama */
+      overflow-y: auto; /* İçeriğin kaymasını engelleme */
+    }
+  
+    .form-container {
+      gap: 10px;
+    }
+  
+    .k-dialog-actions button {
+      width: 100%;
+    }
+  }
+  
+  /* Form Alanı (Input) */
+  form div input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  /* Focus Durumunda Input */
+  form div input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  }
+  
+  /* Placeholder Rengi */
+  form div input::placeholder {
+    color: #888;
+  }
+  
+  form div select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  /* Focus Durumunda Select */
+  form div select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  }
+  
+  /* Option (Seçenek) Alanı */
+  form div select option {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  .my-custom-button {
+    background-color: #e64a19 !important; /* Hover için daha koyu turuncu */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .my-custom-button:hover {
+    background-color: #e64a19 !important; /* Hover için daha koyu turuncu */
+  }
+  
+  

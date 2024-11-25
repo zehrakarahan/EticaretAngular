@@ -1,0 +1,114 @@
+<button kendoButton class="k-primary my-custom-button"  (click)="open()">
+    Coupon Create
+  </button>
+
+<kendo-grid
+[kendoGridBinding]="gridData"
+[pageSize]="10"
+[pageable]="true"
+[sortable]="true"
+[filterable]="true"
+[groupable]="true"
+[height]="420"
+>
+<kendo-grid-column field="couponName" [width]="140"></kendo-grid-column>
+<kendo-grid-column field="discountType" [width]="120"></kendo-grid-column>
+<kendo-grid-column field="discountValue" [width]="100"></kendo-grid-column>
+<kendo-grid-column field="startDateTime" [width]="130"></kendo-grid-column>
+<kendo-grid-column field="expiryDateTime" [width]="130"></kendo-grid-column>
+<ng-template kendoGridDetailTemplate let-dataItem>
+  <div class="detail-row">
+    <!-- Burada detaylarınızı gösterebilirsiniz, örneğin ürün listesi ya da kategori bilgisi -->
+    <p><strong>Kupona Dahil KAtegoriler:</strong></p>
+    <ul>
+      <li *ngFor="let category of dataItem.couponCategories">
+        {{ category.categoryName }}
+      </li>
+    </ul>
+    <p><strong>Kupona DahilProducts:</strong></p>
+    <ul>
+      <li *ngFor="let product of dataItem.couponProducts">
+        {{ product.productName }}
+      </li>
+    </ul>
+  </div>
+</ng-template>
+</kendo-grid>
+<kendo-dialog
+title="Please confirm"
+*ngIf="opened"
+(close)="close('cancel')"
+[minWidth]="250"
+[width]="450"
+>
+<form [formGroup]="bioSection">
+  <div>
+    <label for="couponName">Kupon Adı:</label>
+    <input id="couponName" formControlName="couponName" placeholder="Kupon adı giriniz" />
+  </div>
+
+
+  <div>
+    <label for="couponCode">Kupon Kodu:</label>
+    <input id="couponCode" formControlName="couponCode" placeholder="Kupon kodu giriniz" />
+  </div>
+
+  <div>
+    <label for="discountType">İndirim Türü:</label>
+    <select id="discountType" formControlName="discountType">
+      <option [value]="discountType.PersantageRace">Yüzde</option>
+      <option [value]="discountType.FixedAmount">Sabit Tutar</option>
+    </select>
+  </div>
+  <div>
+    <label for="discountValue">Kupon tutar veya Fiyat bilgisi</label>
+    <input id="discountValue" formControlName="discountValue" placeholder="Coupoun Tutar giriniz" />
+  </div>
+  <!-- Ürün Seçimi -->
+<div class="example-wrapper">
+  <kendo-label text="Ürün Seç">
+    <kendo-multiselect
+      [data]="products"
+      [filterable]="true"
+      textField="text"
+      valueField="value"
+      placeholder="Ürün seçin"
+      [(value)]="selectedProducts"  
+      (valueChange)="onProductSelectionChange($event)"  
+    >
+    </kendo-multiselect>
+  </kendo-label>
+</div>
+
+<!-- Kategori Seçimi -->
+<div class="example-wrapper">
+  <kendo-label text="Kategoriler Seç">
+    <kendo-multiselect
+      [data]="categories"
+      [filterable]="true"
+      textField="text"
+      valueField="value"
+      placeholder="Kategori seçin"
+      [(value)]="selectedCategories" 
+      (valueChange)="onCategorySelectionChange($event)"  
+    >
+    </kendo-multiselect>
+  </kendo-label>
+</div>
+<div>
+  <label for="startDateTime">Başlangıç Tarihi:</label>
+  <input id="startDateTime" type="date"  formControlName="startDateTime" placeholder="Başlangıç tarihi giriniz" />
+</div>
+<div>
+  <label for="expiryDateTime">Bitiş Tarihi:</label>
+  <input id="expiryDateTime" type="date"  formControlName="expiryDateTime" placeholder="Başlangıç tarihi giriniz" />
+</div>
+  </form>
+<kendo-dialog-actions>
+  <button kendoButton (click)="saveCoupon()" themeColor="primary">
+    Yes
+  </button>
+  <button kendoButton (click)="close('no')">No</button>
+ 
+</kendo-dialog-actions>
+</kendo-dialog>

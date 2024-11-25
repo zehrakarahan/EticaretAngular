@@ -1,0 +1,136 @@
+<!-- src/app/home/statistics/statistics.component.html -->
+<div class="statistics-page">
+  <!-- Top Selling Products Chart -->
+  <div class="chart-container">
+    <h2>Top Selling Products</h2>
+    <kendo-chart>
+      <kendo-chart-title text="Top Selling Products"></kendo-chart-title>
+      <kendo-chart-category-axis>
+        <kendo-chart-category-axis-item [categories]="topSellingProductNames">
+          <kendo-chart-category-axis-item-labels
+            [rotation]="'auto'"
+          ></kendo-chart-category-axis-item-labels>
+        </kendo-chart-category-axis-item>
+      </kendo-chart-category-axis>
+      <kendo-chart-series>
+        <kendo-chart-series-item
+          [data]="topSellingProductSales"
+          type="column"
+          name="Units Sold"
+        >
+        </kendo-chart-series-item>
+      </kendo-chart-series>
+      <kendo-chart-tooltip format="{0}" [visible]="true"></kendo-chart-tooltip>
+    </kendo-chart>
+  </div>
+
+  <!-- Top Categories Chart -->
+  <div class="chart-container">
+    <h2>Top Categories</h2>
+    <kendo-chart>
+      <kendo-chart-title text="Top Categories"></kendo-chart-title>
+      <kendo-chart-series>
+        <kendo-chart-series-item
+          [data]="topCategorySales"
+          type="pie"
+          categoryField="categoryName"
+          field="totalSales"
+          [labels]="{
+            visible: true,
+            content: '#= categoryName #: #= totalSales #'
+          }"
+        >
+        </kendo-chart-series-item>
+      </kendo-chart-series>
+      <kendo-chart-tooltip format="{0}" [visible]="true"></kendo-chart-tooltip>
+    </kendo-chart>
+  </div>
+
+  <!-- Daily Sales Chart -->
+  <div class="chart-container">
+    <h2>Daily Sales</h2>
+    <kendo-chart>
+      <kendo-chart-title text="Daily Sales"></kendo-chart-title>
+      <kendo-chart-category-axis>
+        <kendo-chart-category-axis-item [categories]="dailySalesDates">
+          <kendo-chart-category-axis-item-labels
+            [rotation]="'auto'"
+          ></kendo-chart-category-axis-item-labels>
+        </kendo-chart-category-axis-item>
+      </kendo-chart-category-axis>
+      <kendo-chart-series>
+        <kendo-chart-series-item
+          [data]="dailySalesTotals"
+          type="line"
+          name="Total Sales"
+        >
+        </kendo-chart-series-item>
+      </kendo-chart-series>
+      <kendo-chart-tooltip format="{0}" [visible]="true"></kendo-chart-tooltip>
+    </kendo-chart>
+  </div>
+
+  <!-- Sales Status Distribution Chart -->
+  <div class="chart-container">
+    <h2>Sales Status Distribution</h2>
+    <kendo-chart>
+      <kendo-chart-title text="Sales Status Distribution"></kendo-chart-title>
+      <kendo-chart-series>
+        <kendo-chart-series-item
+          [data]="salesStatusCounts"
+          type="donut"
+          categoryField="status"
+          field="count"
+          [labels]="{ visible: true, content: '#= category #: #= value #' }"
+        >
+        </kendo-chart-series-item>
+      </kendo-chart-series>
+      <kendo-chart-tooltip format="{0}" [visible]="true"></kendo-chart-tooltip>
+    </kendo-chart>
+  </div>
+
+  <!-- Cumulative Sales Chart -->
+  <div class="chart-container">
+    <h2>Cumulative Sales</h2>
+    <kendo-chart>
+      <kendo-chart-title text="Cumulative Sales Over Time"></kendo-chart-title>
+      <kendo-chart-category-axis>
+        <kendo-chart-category-axis-item [categories]="cumulativeSalesDates">
+          <kendo-chart-category-axis-item-labels
+            [rotation]="'auto'"
+          ></kendo-chart-category-axis-item-labels>
+        </kendo-chart-category-axis-item>
+      </kendo-chart-category-axis>
+      <kendo-chart-series>
+        <kendo-chart-series-item
+          [data]="cumulativeSales"
+          type="area"
+          name="Cumulative Sales"
+        >
+        </kendo-chart-series-item>
+      </kendo-chart-series>
+      <kendo-chart-tooltip format="{0}" [visible]="true"></kendo-chart-tooltip>
+    </kendo-chart>
+  </div>
+
+  <!-- Low Stock Products Table -->
+  <div class="low-stock-container">
+    <h2>Low Stock Products</h2>
+    <table class="low-stock-table">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Quantity Left</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of lowStockProducts">
+          <td>{{ product.productName }}</td>
+          <td>{{ product.productQuantity }}</td>
+          <td>{{ product.productPrice | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

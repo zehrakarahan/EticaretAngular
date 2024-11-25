@@ -1,0 +1,77 @@
+<button kendoButton class="k-primary my-custom-button"  (click)="open()">
+    Product Create
+  </button>
+  <kendo-grid
+  [kendoGridBinding]="gridData"
+  [pageSize]="10"
+  [pageable]="true"
+  [sortable]="true"
+  [filterable]="true"
+  [groupable]="true"
+  [height]="420">
+
+  <kendo-grid-column field="productName" title="Product Name" [width]="140"></kendo-grid-column>
+
+  <kendo-grid-column field="productDescription" title="Product Description" [width]="200"></kendo-grid-column>
+
+  <kendo-grid-column field="productCategoryId" title="Category ID" [width]="100"></kendo-grid-column>
+
+  <kendo-grid-column field="productPrice" title="Product Price" [width]="120"></kendo-grid-column>
+  
+  <kendo-grid-column field="productQuantity" title="Product Quantity" [width]="120"></kendo-grid-column>
+
+  <kendo-grid-column field="categoriName" title="Category Name" [width]="140"></kendo-grid-column>
+  
+</kendo-grid>
+
+  <kendo-dialog
+  title="Ürün Oluştur"
+  *ngIf="opened"
+  (close)="close('cancel')"
+  [minWidth]="250"
+  [width]="450"
+>
+  <form [formGroup]="bioSection" class="form-container">
+ 
+    <label>
+      Ürün Adı
+      <input type="text" [formControl]="bioSection.controls.productName" placeholder="Ürün adını girin">
+    </label>
+
+    <label>
+      Ürün Açıklaması
+      <input type="text" [formControl]="bioSection.controls.productDescription" placeholder="Ürün açıklamasını girin">
+    </label>
+
+ 
+        <label>
+          Kategori:
+          <select [formControl]="bioSection.controls.productCategoryId">
+            <option *ngFor="let category of categories" [value]="category.id">
+              {{ category.name }}
+            </option>
+          </select>
+        </label>
+        <!-- <p>Seçilen ID: {{ bioSection.controls.categoriId.value }}</p> -->
+      
+
+
+    <label>
+      Ürün Fiyatı
+      <input type="number" [formControl]="bioSection.controls.productPrice" placeholder="Ürün fiyatını girin">
+    </label>
+
+
+    <label>
+      Ürün Miktarı
+      <input type="number" [formControl]="bioSection.controls.productQuantity" placeholder="Ürün miktarını girin">
+    </label>
+  </form>
+
+  <kendo-dialog-actions>
+     <button type="submit" kendoButton (click)="saveProduct()" themeColor="primary"> 
+       Kaydet
+    </button> 
+    <button kendoButton (click)="close('cancel')">İptal</button>
+  </kendo-dialog-actions>
+</kendo-dialog>
